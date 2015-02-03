@@ -34,7 +34,7 @@ import java.util.List;
 
 public class GridImageActivity extends ActionBarActivity {
     GridImageAdapter gridImageAdapter = null;
-    String query = "fall";
+    static String query = "fall";
     String imageSize;
     String colorFilter;
     String imageType;
@@ -48,7 +48,9 @@ public class GridImageActivity extends ActionBarActivity {
         getSupportActionBar().setCustomView(R.layout.actionbar_search);
         getSupportActionBar().setElevation(5);
         readItems();
-        ((EditText) getSupportActionBar().getCustomView().findViewById(R.id.etSearch)).addTextChangedListener(new TextWatcher() {
+        EditText etSearch = (EditText) getSupportActionBar().getCustomView().findViewById(R.id.etSearch);
+        etSearch.setText(query);
+        etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
